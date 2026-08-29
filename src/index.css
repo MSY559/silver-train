@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
+body {
+  background: linear-gradient(135deg, #e0e7ff 0%, #e9d5ff 50%, #fce7f3 100%);
+  min-height: 100vh;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-white/50;
+  }
+
+  .glass-card-dark {
+    @apply bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl border border-white/50;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-500 text-white px-8 py-3.5
+      rounded-full font-semibold text-lg shadow-lg shadow-primary-500/30
+      hover:shadow-xl hover:shadow-primary-500/40 hover:scale-105
+      active:scale-95 transition-all duration-300;
+  }
+
+  .btn-dark {
+    @apply bg-slate-900 text-white px-8 py-3.5
+      rounded-2xl font-semibold text-lg shadow-lg
+      hover:bg-slate-800 hover:shadow-xl
+      active:scale-95 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary-700 px-6 py-3
+      rounded-full font-semibold shadow-md border border-primary-200
+      hover:bg-primary-50 hover:shadow-lg
+      active:scale-95 transition-all duration-300;
+  }
+
+  .option-card {
+    @apply bg-white/80 backdrop-blur-sm border-2 border-slate-200/60
+      rounded-2xl p-5 cursor-pointer
+      hover:border-primary-400 hover:bg-primary-50/50
+      hover:shadow-lg hover:shadow-primary-100
+      transition-all duration-200
+      flex items-start gap-4;
+  }
+
+  .option-card-selected {
+    @apply bg-primary-50 border-primary-500 shadow-lg shadow-primary-200;
+  }
+
+  .progress-bar-bg {
+    @apply h-2 w-full rounded-full bg-slate-200/60 overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full bg-gradient-to-r from-primary-500 to-pink-400 transition-all duration-500 ease-out;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  .page-transition {
+    animation: fadeInUp 0.5s ease-out;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4b5fd;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a78bfa;
+}
